@@ -150,7 +150,7 @@ y_p0 = y_targets[0]
 
 # Initial Angles (Assuming starting from current angles)
 theta1_current_left = 0.0
-theta2_current_left = 0.0
+theta2_current_left = 180.0
 theta1_current_right = 0.0
 theta2_current_right = 0.0
 

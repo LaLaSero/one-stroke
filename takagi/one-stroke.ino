@@ -46,7 +46,7 @@ float y_target = 50.0;  // 単位：mm
 
 // 現在のモーター角度（degrees）
 float theta_current_right = 0.0;
-float theta_current_left = 0.0;
+float theta_current_left = 180.0;
 
 // モーターの目標角度（degrees）
 float theta_target_right = 0.0;

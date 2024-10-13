@@ -33,7 +33,7 @@ prevError2_right = 0.0
 
 # 星形のパス定義
 star_points = 5  # 星の頂点の数（五芒星）
-star_size = 25.0  # 外点の半径 (mm)
+star_size = 30.0  # 外点の半径 (mm)
 inner_ratio = 0.5  # 内点の半径の比率
 num_points_per_side = 75  # 各辺の補間点数
 
@@ -58,7 +58,7 @@ path_points = generate_star_path(
     outer_radius=star_size,
     inner_radius=star_size * inner_ratio,
     center_x=l0 / 2,  # 星形の中心をモーター間の中間点に設定
-    center_y=50.0
+    center_y=70.0
 )
 
 # 星形の頂点間を補間して滑らかなパスを生成
@@ -164,7 +164,7 @@ y_p0 = y_targets[0]
 
 # 初期角度（現在の角度からスタート）
 theta1_current_left = 0.0
-theta2_current_left = 0.0
+theta2_current_left = 180.0
 theta1_current_right = 0.0
 theta2_current_right = 0.0
 
