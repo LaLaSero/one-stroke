@@ -95,6 +95,8 @@ y_line5 = np.linspace(LT[1], LB[1], num_points_line)
 # パスを連結して一筆書きのパスを生成
 x_targets = np.concatenate([x_line1, x_line2, x_line3, x_line4, x_parabola, x_line5])
 y_targets = np.concatenate([y_line1, y_line2, y_line3, y_line4, y_parabola, y_line5])
+np.savetxt('x_targets_sub2.csv', x_targets, delimiter=',', header='x_targets', comments='')
+np.savetxt('y_targets_sub2.csv', y_targets, delimiter=',', header='y_targets', comments='')
 
 # 角度差の最小値を計算するヘルパー関数
 def angle_difference(a, b):

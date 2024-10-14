@@ -102,6 +102,10 @@ y_line4 = np.linspace(LB[1], RB[1], num_points_line)
 x_targets = np.concatenate([x_arc1, x_arc2, x_line1, x_line2, x_line3, x_line4])
 y_targets = np.concatenate([y_arc1, y_arc2, y_line1, y_line2, y_line3, y_line4])
 
+np.savetxt('x_targets_sub1.csv', x_targets, delimiter=',', header='x_targets', comments='')
+np.savetxt('y_targets_sub1.csv', y_targets, delimiter=',', header='y_targets', comments='')
+
+
 # Helper Function to Calculate Minimal Angle Difference
 def angle_difference(a, b):
     """
