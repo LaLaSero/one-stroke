@@ -43,12 +43,6 @@ square_size = 100.0  # Size of the square (mm)
 num_points_arc = 200  # Number of points for each arc
 num_points_line = 200  # Number of points for each line
 
-# Define key points
-# RB = (140.0, 100.0)  # Right Bottom
-# LT = (60.0, 180.0)     # Left Top
-# RT = (140.0, 180.0)    # Right Top
-# LB = (60.0, 100.0)    # Left Bottom
-
 RB = (l0/2.0 + square_size/2.0, l0/2.0)  # Right Bottom
 LT = (l0/2.0 - square_size/2.0, l0/2.0 + square_size)     # Left Top
 RT = (l0/2.0 + square_size/2.0, l0/2.0 + square_size)    # Right Top
