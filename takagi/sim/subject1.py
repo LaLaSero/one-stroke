@@ -4,8 +4,8 @@ from matplotlib.animation import FuncAnimation
 
 # System Parameters
 l0 = 150.0  # Distance between motors (mm)
-l1 = 125.0  # Length of first link (mm)
-l2 = 100.0  # Length of second link (mm)
+l1 = 80.0  # Length of first link (mm)
+l2 = 125.0  # Length of second link (mm)
 
 # PID Control Parameters
 Kp = 13.0
@@ -42,11 +42,11 @@ prevError2_right = 0.0
 square_size = 100.0  # Size of the square (mm)
 num_points_arc = 200  # Number of points for each arc
 num_points_line = 200  # Number of points for each line
-
-RB = (l0/2.0 + square_size/2.0, l0/2.0)  # Right Bottom
-LT = (l0/2.0 - square_size/2.0, l0/2.0 + square_size)     # Left Top
-RT = (l0/2.0 + square_size/2.0, l0/2.0 + square_size)    # Right Top
-LB = (l0/2.0 - square_size/2.0, l0/2.0)    # Left Bottom
+y_center = l0/2.0 # Center of the square
+RB = (l0/2.0 + square_size/2.0, y_center)  # Right Bottom
+LT = (l0/2.0 - square_size/2.0, y_center + square_size)     # Left Top
+RT = (l0/2.0 + square_size/2.0, y_center + square_size)    # Right Top
+LB = (l0/2.0 - square_size/2.0, y_center)    # Left Bottom
 
 # Define centers and radius for arcs
 radius = square_size  # Approx sqrt((100)^2 + (100)^2), adjusted for desired curvature
