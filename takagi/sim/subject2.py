@@ -188,7 +188,7 @@ x_p0 = x_targets[0]
 y_p0 = y_targets[0]
 
 # 初期角度 (逆運動学の解に基づく)
-result_left = inverse_kinematics_left(x_p0, y_p0, 0.0, 180.0)
+result_left = inverse_kinematics_left(x_p0, y_p0, 0.0, 0.0)
 result_right = inverse_kinematics_right(x_p0, y_p0, 0.0, 0.0)
 
 if result_left is None or result_right is None or any(v is None for v in result_left) or any(v is None for v in result_right):
