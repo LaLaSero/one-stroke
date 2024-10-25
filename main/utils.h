@@ -6,9 +6,11 @@
 // ----------------------------
 // 角度差分を計算するヘルパー関数
 // ----------------------------
-float angleDifference(float a, float b) {
+float angleDifference(float a, float b)
+{
   // 角度をラジアンに変換
   float diff = radians(a) - radians(b);
+  return degrees(diff);
 }
 
 // ----------------------------

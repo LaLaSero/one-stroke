@@ -1,5 +1,6 @@
 #include "config.h"
 #include "utils.h"
+#include "reverse_kinematics.h"
 
 // float normalizeAngle(float angle)
 // {
@@ -89,6 +90,8 @@ void loop() {
       setMotorRight(controlSignal_right);
       setMotorLeft(controlSignal_left);
 
+       Serial.print("controlSignal_right"); Serial.print(controlSignal_right);
+       Serial.print("controlSignal_left"); Serial.print(controlSignal_left);
       // Serial.print("Theta Target Right: "); Serial.print(theta_target_right);
       // Serial.print(" | Theta Current Right: "); Serial.print(theta_current_right);
       // Serial.print(" | Control Right: "); Serial.print(controlSignal_right);
