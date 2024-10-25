@@ -65,7 +65,7 @@ float theta_target_right = 0.0;
 float theta_target_left = 0.0;
 
 float theta_current_right = 0.0;
-float theta_current_left = 180.0;
+float theta_current_left = 0.0;
 
 // リンクの長さ
 const float l0 = L0; // モーター間の距離（mm）

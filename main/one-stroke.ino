@@ -1,18 +1,18 @@
 #include "config.h"
 #include "utils.h"
 
-float normalizeAngle(float angle)
-{
-  while (angle > 180)
-  {
-    angle -= 360;
-  }
-  while (angle < -180)
-  {
-    angle += 360;
-  }
-  return angle;
-}
+// float normalizeAngle(float angle)
+// {
+//   while (angle > 180)
+//   {
+//     angle -= 360;
+//   }
+//   while (angle < -180)
+//   {
+//     angle += 360;
+//   }
+//   return angle;
+// }
 
 void setup() {
   // シリアル通信の初期化
@@ -45,7 +45,6 @@ void setup() {
 }
 
 int targetIndex = 0;
-
 void loop() {
   // 現在時間を取得
   unsigned long currentTime = millis();
@@ -62,20 +61,17 @@ void loop() {
       targetIndex = numPoints - 1;
     }
 
-    // 逆運動学の計算（左アーム）
     bool leftIK = inverseKinematicsLeft(x_target, y_target, theta_current_left, theta_target_left);
-
-    // 逆運動学の計算（右アーム）
     bool rightIK = inverseKinematicsRight(x_target, y_target, theta_current_right, theta_target_right);
 
-    if (!leftIK || !rightIK) {
+    if (!leftIK || !rightIK)
+    {
       Serial.println("Inverse Kinematics solution not found for the given position.");
       setMotorRight(0);
       setMotorLeft(0);
-    } 
+    }
     else
     {
-      // エンコーダから現在の角度を安全に計算
       noInterrupts();
       long rightCount = rightEncoderCount;
       long leftCount = leftEncoderCount;
@@ -84,20 +80,15 @@ void loop() {
       theta_current_right = (rightCount / (float)CPR) * 360.0 / GearRatio;
       theta_current_left = (leftCount / (float)CPR) * 360.0 / GearRatio;
 
-      theta_current_right = normalizeAngle(theta_current_right);
-      theta_current_left = normalizeAngle(theta_current_left);
-      
-      // PID制御（右アーム）
-      float controlSignal_right = pidControl(theta_target_right, theta_current_right, integral_right, prevError_right, dt);
+      // theta_current_right = normalizeAngle(theta_current_right);
+      // theta_current_left = normalizeAngle(theta_current_left);
 
-      // PID制御（左アーム）
+      float controlSignal_right = pidControl(theta_target_right, theta_current_right, integral_right, prevError_right, dt);
       float controlSignal_left = pidControl(theta_target_left, theta_current_left, integral_left, prevError_left, dt);
 
-      // モータに制御信号を送信
       setMotorRight(controlSignal_right);
       setMotorLeft(controlSignal_left);
 
-      // デバッグ用シリアル出力
       // Serial.print("Theta Target Right: "); Serial.print(theta_target_right);
       // Serial.print(" | Theta Current Right: "); Serial.print(theta_current_right);
       // Serial.print(" | Control Right: "); Serial.print(controlSignal_right);
@@ -105,8 +96,6 @@ void loop() {
       // Serial.print(" | Theta Current Left: "); Serial.print(theta_current_left);
       // Serial.print(" | Control Left: "); Serial.println(controlSignal_left);
     }
-
-    // 時間を更新
     prevTime = currentTime;
   }
 }

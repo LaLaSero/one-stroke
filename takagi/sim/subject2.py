@@ -358,7 +358,7 @@ def animate_func(i):
 
 # アニメーションの作成
 ani = FuncAnimation(fig, animate_func, frames=len(x_p_list), interval=control_interval*1000, blit=True)
-# ani.save('robot_arm_simulation.gif', writer='imagemagick', fps=30)
+ani.save('robot_arm_simulation.gif', writer='imagemagick', fps=20)
 plt.show()
 
 # ジョイント角度の時間変化をプロット
