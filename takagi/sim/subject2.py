@@ -3,9 +3,9 @@ import matplotlib.pyplot as plt
 from matplotlib.animation import FuncAnimation
 
 # システムパラメータ
-l0 = 100.0  # モーター間の距離 (mm)
-l1 = 100.0  # 第一リンクの長さ (mm)
-l2 = 100.0  # 第二リンクの長さ (mm)
+l0 = 150.0  # モーター間の距離 (mm)
+l1 = 90.0  # 第一リンクの長さ (mm)
+l2 = 140.0  # 第二リンクの長さ (mm)
 
 # PID制御パラメータ
 Kp = 13.0
@@ -358,7 +358,7 @@ def animate_func(i):
 
 # アニメーションの作成
 ani = FuncAnimation(fig, animate_func, frames=len(x_p_list), interval=control_interval*1000, blit=True)
-ani.save('robot_arm_simulation.gif', writer='imagemagick', fps=20)
+# ani.save('robot_arm_simulation.gif', writer='imagemagick', fps=20)
 plt.show()
 
 # ジョイント角度の時間変化をプロット
