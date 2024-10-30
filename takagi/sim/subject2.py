@@ -16,7 +16,7 @@ Kd = 0.5
 control_interval = 0.01  # 秒
 
 # ターゲット更新間隔
-target_update_interval = 0.04  # 秒
+target_update_interval = 0.1  # 秒
 
 # エンコーダ設定
 CPR = 1000        # 回転あたりのカウント数
