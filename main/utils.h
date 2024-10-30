@@ -87,16 +87,11 @@ void setMotorLeft(float speed) {
 // ----------------------------
 // PID制御関数
 // ----------------------------
-const float integralLimit = 25.0;
 #define MAX_OUTPUT 255
-
 float pidControl(float setpoint, float measured, float &integral, float &prevError, float dt)
 {
   float error = setpoint - measured;
   integral += error * dt;
-
-  if (integral > integralLimit) integral = integralLimit;
-  else if (integral < -integralLimit) integral = -integralLimit;
 
   float derivative = (error - prevError) / dt;
   float output = Kp * error + Ki * integral + Kd * derivative;

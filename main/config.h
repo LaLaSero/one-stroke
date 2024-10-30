@@ -8,9 +8,9 @@
 #define CPR_COUNT 360
 #define GEAR_RATIO 1.0
 
-#define L0 100
-#define L1 100
-#define L2 100
+#define L0 150
+#define L1 90
+#define L2 140
 
 #define P_GAIN 8.0
 #define I_GAIN 0.0
@@ -52,7 +52,11 @@ float prevError_left = 0;
 
 // 制御周期
 unsigned long prevTime = 0;
-const unsigned long controlInterval = CONTROL_INTERVAL; // ミリ秒
+// const unsigned long controlInterval = CONTROL_INTERVAL; // ミリ秒
+unsigned long prevTimeTargetUpdate = 0;
+unsigned long prevTimeControlLoop = 0;
+const unsigned long targetUpdateInterval = 1000; // Update target every 1 second
+const unsigned long controlLoopInterval = 50; 
 
 // 目標位置（ペン先の座標）
 float x_target = 150.0; // 単位：mm
