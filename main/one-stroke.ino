@@ -81,8 +81,8 @@ void loop()
       setMotorRight(controlSignal_right);
       setMotorLeft(controlSignal_left);
 
-      Serial.print("controlSignal_right: "); Serial.println(controlSignal_right);
-      Serial.print("controlSignal_left: "); Serial.println(controlSignal_left);
+      // Serial.print("controlSignal_right: "); Serial.println(controlSignal_right);
+      // Serial.print("controlSignal_left: "); Serial.println(controlSignal_left);
     }
     prevTimeControlLoop = currentTime;
   }
