@@ -352,6 +352,13 @@ def animate_func(i):
 
     return line_left_arm, line_right_arm, pen_point, pen_trail
 
+step = 4
+theta1_left_list_sparse = theta1_left_list[::step]
+theta1_right_list_sparse = theta1_right_list[::step]
+# カンマ区切りで保存
+np.savetxt('degx_sparse.csv', theta1_left_list_sparse, delimiter=',', comments='')
+np.savetxt('degy_sparse.csv', theta1_right_list_sparse, delimiter=',', comments='')
+
 # アニメーションの作成
 ani = FuncAnimation(fig, animate_func, frames=len(x_p_list), interval=control_interval*1000, blit=True)
 plt.show()
