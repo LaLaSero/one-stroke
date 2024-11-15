@@ -19,7 +19,7 @@ float angleDifference(float a, float b)
 void rightEncoderA_ISR() {
   bool stateA = digitalRead(right_OUT1);
   bool stateB = digitalRead(right_OUT2);
-  if (stateA == stateB) {
+  if (stateA != stateB) {
     rightEncoderCount++;
   } else {
     rightEncoderCount--;
@@ -29,7 +29,7 @@ void rightEncoderA_ISR() {
 void rightEncoderB_ISR() {
   bool stateA = digitalRead(right_OUT1);
   bool stateB = digitalRead(right_OUT2);
-  if (stateA != stateB) {
+  if (stateA == stateB) {
     rightEncoderCount++;
   } else {
     rightEncoderCount--;
@@ -39,7 +39,7 @@ void rightEncoderB_ISR() {
 void leftEncoderA_ISR() {
   bool stateA = digitalRead(left_OUT1);
   bool stateB = digitalRead(left_OUT2);
-  if (stateA == stateB) {
+  if (stateA != stateB) {
     leftEncoderCount++;
   } else {
     leftEncoderCount--;
@@ -49,7 +49,7 @@ void leftEncoderA_ISR() {
 void leftEncoderB_ISR() {
   bool stateA = digitalRead(left_OUT1);
   bool stateB = digitalRead(left_OUT2);
-  if (stateA != stateB) {
+  if (stateA == stateB) {
     leftEncoderCount++;
   } else {
     leftEncoderCount--;
@@ -96,6 +96,14 @@ float pidControl(float setpoint, float measured, float &integral, float &prevErr
   float derivative = (error - prevError) / dt;
   float output = Kp * error + Ki * integral + Kd * derivative;
   
+  // if(error<0){
+  //   Kp=2;
+  //   Kd=0.1;
+  //   output = Kp * error + Ki * integral + Kd * derivative;
+  //   // Serial.println(Kp);
+  //   Kp=P_GAIN;
+  //   Kd=D_GAIN;
+  // }
   output = constrain(output, -MAX_OUTPUT, MAX_OUTPUT);
 
   prevError = error;

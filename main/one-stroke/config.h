@@ -12,22 +12,24 @@
 #define L1 90
 #define L2 140
 
-#define P_GAIN 8.0
-#define I_GAIN 0.0
-#define D_GAIN 0.2
+#define P_GAIN 10.0
+#define I_GAIN 0.05
+#define D_GAIN 0.03
+
+
 
 const unsigned long targetUpdateInterval = 100;
 const unsigned long controlLoopInterval = 10; 
 
 // モータ制御ピン（右側）
-const int right_IN1 = 6;
-const int right_IN2 = 7;
+const int right_IN1 = 7;
+const int right_IN2 = 6;
 const int right_OUT1 = 18; // エンコーダーA
 const int right_OUT2 = 19; // エンコーダーB
 
 // モータ制御ピン（左側）
-const int left_IN1 = 12;
-const int left_IN2 = 13;
+const int left_IN1 = 9;
+const int left_IN2 = 8;
 const int left_OUT1 = 20; // エンコーダーA
 const int left_OUT2 = 21; // エンコーダーB
 
@@ -66,8 +68,8 @@ float y_target = 50.0;  // 単位：mm
 float theta_target_right = 0.0;
 float theta_target_left = 0.0;
 
-float theta_current_right = 0.0;
-float theta_current_left = 0.0;
+float theta_current_right = 0;
+float theta_current_left = 0;
 
 // リンクの長さ
 const float l0 = L0; // モーター間の距離（mm）

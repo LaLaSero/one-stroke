@@ -26,8 +26,8 @@ void setup() {
 
   // 初期時間を取得
   noInterrupts();
-  rightEncoderCount = 0;
-  leftEncoderCount = 0;
+  rightEncoderCount = -3;
+  leftEncoderCount = 99;
   interrupts();
   prevTime = millis();
 }
@@ -46,6 +46,7 @@ void loop()
     if (targetIndex >= numPoints)
     {
       targetIndex = numPoints - 1;
+      // targetIndex=0;
     }
 
     prevTimeTargetUpdate = currentTime;
@@ -81,7 +82,17 @@ void loop()
       setMotorRight(controlSignal_right);
       setMotorLeft(controlSignal_left);
 
-      // Serial.print("controlSignal_right: "); Serial.println(controlSignal_right);
+      // Serial.print("controlSignal_right: ");
+      // Serial.println(dt,5);
+      // Serial.print(",");
+      // Serial.println(theta_current_left);
+      // Serial.print(",");
+      // Serial.println(prevError_right);
+      // Serial.print(",");
+      // Serial.println(theta_target_right);
+      // Serial.print(",");
+      // Serial.println(controlSignal_right);
+      Serial.println(prevError_right);
       // Serial.print("controlSignal_left: "); Serial.println(controlSignal_left);
     }
     prevTimeControlLoop = currentTime;
