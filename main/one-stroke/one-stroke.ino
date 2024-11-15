@@ -47,6 +47,7 @@ void loop()
     {
       targetIndex = numPoints - 1;
       // targetIndex=0;
+      // targetIndex=0;
     }
 
     prevTimeTargetUpdate = currentTime;
@@ -92,7 +93,7 @@ void loop()
       // Serial.println(theta_target_right);
       // Serial.print(",");
       // Serial.println(controlSignal_right);
-      Serial.println(prevError_right);
+      // Serial.println(prevError_right);
       // Serial.print("controlSignal_left: "); Serial.println(controlSignal_left);
     }
     prevTimeControlLoop = currentTime;

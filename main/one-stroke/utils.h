@@ -67,8 +67,8 @@ void setMotorRight(float speed) {
     analogWrite(right_IN1, speed);
     digitalWrite(right_IN2, LOW);
   } else {
-    analogWrite(right_IN1, -speed);
-    digitalWrite(right_IN2, HIGH);
+    digitalWrite(right_IN1, LOW);
+    analogWrite(right_IN2, -speed);
   }
 }
 
@@ -79,15 +79,15 @@ void setMotorLeft(float speed) {
     analogWrite(left_IN1, speed);
     digitalWrite(left_IN2, LOW);
   } else {
-    analogWrite(left_IN1, -speed);
-    digitalWrite(left_IN2, HIGH);
+    digitalWrite(left_IN1, LOW);
+    analogWrite(left_IN2, -speed);
   }
 }
 
 // ----------------------------
 // PID制御関数
 // ----------------------------
-#define MAX_OUTPUT 255
+#define MAX_OUTPUT 254
 float pidControl(float setpoint, float measured, float &integral, float &prevError, float dt)
 {
   float error = setpoint - measured;
@@ -95,16 +95,19 @@ float pidControl(float setpoint, float measured, float &integral, float &prevErr
 
   float derivative = (error - prevError) / dt;
   float output = Kp * error + Ki * integral + Kd * derivative;
+
   
   // if(error<0){
-  //   Kp=2;
-  //   Kd=0.1;
+  //   Kp=6.5;
+  //   Ki=0.08;
+  //   Kd=0.07;
   //   output = Kp * error + Ki * integral + Kd * derivative;
   //   // Serial.println(Kp);
   //   Kp=P_GAIN;
   //   Kd=D_GAIN;
   // }
   output = constrain(output, -MAX_OUTPUT, MAX_OUTPUT);
+  // Serial.println(output);
 
   prevError = error;
   return output;
