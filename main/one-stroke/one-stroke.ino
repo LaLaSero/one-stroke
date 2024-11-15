@@ -30,6 +30,8 @@ void setup() {
   leftEncoderCount = 99;
   interrupts();
   prevTime = millis();
+  x_target=readFloatFromProgmem(x_targets);
+  y_target=readFloatFromProgmem(y_targets);
 }
 
 int targetIndex = 0;
@@ -45,8 +47,8 @@ void loop()
     targetIndex++;
     if (targetIndex >= numPoints)
     {
-      targetIndex = numPoints - 1;
-      // targetIndex=0;
+      // targetIndex = numPoints - 1;
+      targetIndex=0;
       // targetIndex=0;
     }
 

@@ -12,13 +12,13 @@
 #define L1 90
 #define L2 140
 
-#define P_GAIN 6.5
+#define P_GAIN 13
 #define I_GAIN 0.08
 #define D_GAIN 0.07
 
 
 
-const unsigned long targetUpdateInterval = 100;
+const unsigned long targetUpdateInterval = 70;
 const unsigned long controlLoopInterval = 10; 
 
 // モータ制御ピン（右側）
@@ -60,8 +60,8 @@ unsigned long prevTimeTargetUpdate = 0;
 unsigned long prevTimeControlLoop = 0;
 
 // 目標位置（ペン先の座標）
-float x_target = 150.0; // 単位：mm
-float y_target = 50.0;  // 単位：mm
+float x_target = 0; // 単位：mm
+float y_target = 0;  // 単位：mm
 
 
 // モーターの目標角度（degrees）
