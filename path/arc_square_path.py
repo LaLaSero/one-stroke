@@ -6,8 +6,6 @@ l0 = 150.0  # モーター間の距離 (mm)
 l1 = 90.0   # 第一リンクの長さ (mm)
 l2 = 140.0  # 第二リンクの長さ (mm)
 
-# パスの定義
-
 # 定数
 square_size = 100.0  # 正方形や三角形のサイズ (mm)
 
@@ -86,7 +84,7 @@ print("length of y_targets: ", len(y_targets))
 coordinates = np.column_stack((x_targets, y_targets))
 
 # CSVファイルに保存（ヘッダーなし、カンマ区切り）
-np.savetxt('targets_sub2.csv', coordinates, delimiter=',')
+np.savetxt('arc_square.csv', coordinates, delimiter=',')
 
 # 経路をプロットして確認（オプション）
 plt.plot(x_targets, y_targets)

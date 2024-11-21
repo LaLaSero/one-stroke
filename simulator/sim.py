@@ -31,8 +31,8 @@ integral2_right = 0.0
 prevError2_right = 0.0
 
 # 先ほど生成したファイルからx_targetsとy_targetsを読み込み
-x_targets_full = np.loadtxt('x_targets_sub2.txt', delimiter=',')
-y_targets_full = np.loadtxt('y_targets_sub2.txt', delimiter=',')
+x_targets_full = np.loadtxt('x_arc_square.txt', delimiter=',')
+y_targets_full = np.loadtxt('y_arc_square.txt', delimiter=',')
 
 # 角度差の最小値を計算するヘルパー関数
 def angle_difference(a, b):
