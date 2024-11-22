@@ -28,7 +28,7 @@ RT = (x_right, y_top)     # 右上
 LT = (x_left, y_top)      # 左上
 
 # パスの点数
-num_points_line = 50      # 各直線の点数
+num_points_line = 200      # 各直線の点数
 num_points_arc = int((np.pi / 2.0) * num_points_line)  # 円弧の点数
 
 # 1. RB -> RT まで直線
