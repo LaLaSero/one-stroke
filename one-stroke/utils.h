@@ -96,6 +96,7 @@ float pidControl(float setpoint, float measured, float &integral, float &prevErr
   float derivative = (error - prevError) / dt;
   float output = Kp * error + Ki * integral + Kd * derivative;
 
+  output=50*(output/10/(1+pow(output/10,2)))+output;//小さい値の時にも動くように重みづけする関数
   
   // if(error<0){
   //   Kp=6.5;

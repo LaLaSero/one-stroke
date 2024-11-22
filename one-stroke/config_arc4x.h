@@ -12,13 +12,15 @@
 #define L1 90
 #define L2 140
 
-#define P_GAIN 13
-#define I_GAIN 0.08
-#define D_GAIN 0.07
+//ゲイン調整（ある程度は確定？）
+#define P_GAIN 35
+#define I_GAIN 0.05
+#define D_GAIN 0.122
 
+#define rightEncoderCount_initial -3
+#define leftEncoderCount_initial 99
 
-
-const unsigned long targetUpdateInterval = 70;
+const unsigned long targetUpdateInterval = 20;
 const unsigned long controlLoopInterval = 10; 
 
 // モータ制御ピン（右側）

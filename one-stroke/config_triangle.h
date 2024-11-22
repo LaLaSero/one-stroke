@@ -16,6 +16,8 @@
 #define I_GAIN 0.08
 #define D_GAIN 0.07
 
+#define rightEncoderCount_initial 64
+#define leftEncoderCount_initial 116
 
 
 const unsigned long targetUpdateInterval = 70;

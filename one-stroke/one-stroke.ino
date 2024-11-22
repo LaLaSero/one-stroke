@@ -1,4 +1,15 @@
-#include "config.h"
+/*メモ
+ＰゲインとＤゲインには関数で関係がある
+Kd^2-4mKp=0(ばねマス系)
+出力が小さい場合に動かない現象→がたがたな動き？
+→重みづけする関数に乗せる方法
+*/
+
+// #include "config.h"
+// #include "config_arc.h"
+// #include "config_triangle.h"
+#include "config_arc4x.h"
+
 #include "utils.h"
 #include "reverse_kinematics.h"
 
@@ -26,8 +37,8 @@ void setup() {
 
   // 初期時間を取得
   noInterrupts();
-  rightEncoderCount = -3;
-  leftEncoderCount = 99;
+  rightEncoderCount = rightEncoderCount_initial;
+  leftEncoderCount = leftEncoderCount_initial;
   interrupts();
   prevTime = millis();
   x_target=readFloatFromProgmem(x_targets);
@@ -94,7 +105,7 @@ void loop()
       // Serial.print(",");
       // Serial.println(theta_target_right);
       // Serial.print(",");
-      // Serial.println(controlSignal_right);
+      // Serial.println(controlSignal_left);
       // Serial.println(prevError_right);
       // Serial.print("controlSignal_left: "); Serial.println(controlSignal_left);
     }
