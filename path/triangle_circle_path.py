@@ -34,24 +34,24 @@ LT = (x_left, y_top)                             # 左上
 RLM = (x_center, y_bottom)  # 右下から左下への中間点（下辺の中央）
 
 # パスの点数
-num_points_line = 50      # 各直線の点数
-num_points_circle = num_points_line * 4  # 円の点数（フルサークルなので直線の点数の4倍）
+num_points_line = 250      # 各直線の点数
+num_points_circle = num_points_line * 3  # 円の点数（フルサークルなので直線の点数の4倍）
 
 # 1. Vertex -> LB まで直線
 x_line1 = np.linspace(Vertex[0], LB[0], num_points_line)
 y_line1 = np.linspace(Vertex[1], LB[1], num_points_line)
 
 # 2. LB -> RB まで直線
-x_line2 = np.linspace(LB[0], RB[0], num_points_line)
-y_line2 = np.linspace(LB[1], RB[1], num_points_line)
+x_line2 = np.linspace(LB[0], RB[0], num_points_line*2)
+y_line2 = np.linspace(LB[1], RB[1], num_points_line*2)
 
 # 3. RB -> Vertex まで直線
 x_line3 = np.linspace(RB[0], Vertex[0], num_points_line)
 y_line3 = np.linspace(RB[1], Vertex[1], num_points_line)
 
 # 4. Vertex -> RLM まで直線
-x_line4 = np.linspace(Vertex[0], RLM[0], num_points_line)
-y_line4 = np.linspace(Vertex[1], RLM[1], num_points_line)
+x_line4 = np.linspace(Vertex[0], RLM[0], num_points_line*2)
+y_line4 = np.linspace(Vertex[1], RLM[1], num_points_line*2)
 
 # 5. RLMから、正三角形の内接円を書いて一周する
 # 内接円の中心座標と半径を計算
