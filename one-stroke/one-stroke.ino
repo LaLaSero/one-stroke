@@ -8,14 +8,17 @@ Kd^2-4mKp=0(ばねマス系)
 // #include "config.h"
 // #include "config_arc.h"
 // #include "config_triangle.h"
-#include "config_arc4x.h"
+// #include "config_arc4x.h"
+#include "config_triangle5x.h"
 
 #include "utils.h"
 #include "reverse_kinematics.h"
 
+int targetIndex = 0;
+
 void setup() {
   // シリアル通信の初期化
-  Serial.begin(9600);
+  // Serial.begin(2000000);
 
   // モータ制御ピンを出力に設定
   pinMode(right_IN1, OUTPUT);
@@ -43,9 +46,9 @@ void setup() {
   prevTime = millis();
   x_target=readFloatFromProgmem(x_targets);
   y_target=readFloatFromProgmem(y_targets);
+      // targetIndex=numPoints;
 }
 
-int targetIndex = 0;
 void loop()
 {
   unsigned long currentTime = millis();
@@ -54,7 +57,7 @@ void loop()
   if (currentTime - prevTimeTargetUpdate >= targetUpdateInterval)
   {
     x_target = readFloatFromProgmem(x_targets + targetIndex);
-    y_target = readFloatFromProgmem(y_targets + targetIndex);
+    y_target = readFloatFromProgmem(y_targets + targetIndex);//+y_offset
     targetIndex++;
     if (targetIndex >= numPoints)
     {
@@ -62,6 +65,9 @@ void loop()
       targetIndex=0;
       // targetIndex=0;
     }
+    // if(targetIndex==0){
+    //   targetIndex=numPoints;
+    // }
 
     prevTimeTargetUpdate = currentTime;
   }
@@ -97,7 +103,7 @@ void loop()
       setMotorLeft(controlSignal_left);
 
       // Serial.print("controlSignal_right: ");
-      // Serial.println(dt,5);
+      // Serial.println(dt,4);
       // Serial.print(",");
       // Serial.println(theta_current_left);
       // Serial.print(",");
@@ -106,6 +112,7 @@ void loop()
       // Serial.println(theta_target_right);
       // Serial.print(",");
       // Serial.println(controlSignal_left);
+      // Serial.println(theta_current_right);
       // Serial.println(prevError_right);
       // Serial.print("controlSignal_left: "); Serial.println(controlSignal_left);
     }
