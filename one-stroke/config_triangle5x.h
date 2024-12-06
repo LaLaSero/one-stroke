@@ -16,11 +16,11 @@
 #define I_GAIN 0.1
 #define D_GAIN 0.144
 
-#define rightEncoderCount_initial 64
-#define leftEncoderCount_initial 116
+#define rightEncoderCount_initial 78
+#define leftEncoderCount_initial 102
 
 
-const unsigned long targetUpdateInterval = 70;
+const unsigned long targetUpdateInterval = 30;
 const unsigned long controlLoopInterval = 5; 
 
 // モータ制御ピン（右側）
