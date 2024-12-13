@@ -99,7 +99,7 @@ void loop()
       float controlSignal_right = pidControl(theta_target_right, theta_current_right, integral_right, prevError_right, dt);
       float controlSignal_left = pidControl(theta_target_left, theta_current_left, integral_left, prevError_left, dt);
 
-      setMotorRight(controlSignal_right);
+      setMotorRight(controlSignal_right*1.1);
       setMotorLeft(controlSignal_left);
 
       // Serial.print("controlSignal_right: ");

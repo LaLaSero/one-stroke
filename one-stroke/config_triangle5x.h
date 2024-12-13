@@ -13,8 +13,8 @@
 #define L2 140
 
 #define P_GAIN 50
-#define I_GAIN 0.1
-#define D_GAIN 0.144
+#define I_GAIN 20
+#define D_GAIN 0.14
 
 #define rightEncoderCount_initial 78
 #define leftEncoderCount_initial 102
