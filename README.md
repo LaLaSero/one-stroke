@@ -48,5 +48,26 @@
 
 ---
 
+## 🛠 **使い方**
+以下の手順でシステムをセットアップし、動作を確認できます。
+1. リポジトリをクローンします:
+    ```bash
+    git clone https://github.com/ユーザー名/リポジトリ名.git
+    cd リポジトリ名
+    ```
+2. 必要なライブラリをインストールしてください（例: Arduino IDEのライブラリマネージャを使用）。
+
+### 3️⃣ パス生成
+- 図形データを `path_generator` プログラムに入力し、描画用パスを生成します。
+    ```bash
+    python path_generator.py --input example_shape.json --output path.json
+    ```
+
+### 4️⃣ シミュレーション
+- シミュレーションプログラムで生成したパスをテストします。
+    ```bash
+    python simulation.py --path path.json
+    ```
+
 この構成を活かし、ロボット描画タスクを完璧にこなすプラットフォームを目指しました。
 
