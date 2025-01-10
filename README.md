@@ -1,8 +1,7 @@
 # One-Stroke Robot Project
 
-![ライセンス](https://img.shields.io/github/license/ユーザー名/リポジトリ名)
-![言語](https://img.shields.io/github/languages/top/ユーザー名/リポジトリ名)
-![リリース](https://img.shields.io/github/v/release/ユーザー名/リポジトリ名)
+![ライセンス](https://github.com/LaLaSero/one-stroke.git)
+![リリース](https://github.com/LaLaSero/one-stroke.git)
 
 # 一筆書きで描く高速・高精度ロボット
 
@@ -53,22 +52,31 @@
 以下の手順でシステムをセットアップし、動作を確認できます。
 1. リポジトリをクローンします:
     ```bash
-    git clone https://github.com/ユーザー名/リポジトリ名.git
-    cd リポジトリ名
+    git clone https://github.com/LaLaSero/one-stroke.git
+    cd one-stroke
     ```
-2. 必要なライブラリをインストールしてください（例: Arduino IDEのライブラリマネージャを使用）。
+2. 必要なライブラリをインストールしてください
 
 ### 3️⃣ パス生成
-- 図形データを `path_generator` プログラムに入力し、描画用パスを生成します。
+- 図形データから描画用パスを生成します。
     ```bash
-    python path_generator.py --input example_shape.json --output path.json
+    cd path
+    python3 arc_square_path.py
+    sh format.sh arc_square.csv
     ```
+     x_arc_square.txtとy_arc_square.txtが生成されるので，それらを simulator/arc/ に移動させます
 
 ### 4️⃣ シミュレーション
 - シミュレーションプログラムで生成したパスをテストします。
     ```bash
-    python simulation.py --path path.json
+    cd ../simulator
+    python3 sim_arc.py
     ```
+### 5 変更の適用
+-  ```bash
+   cd ../one-stroke
+   
+   ```
 
 この構成を活かし、ロボット描画タスクを完璧にこなすプラットフォームを目指しました。
 
