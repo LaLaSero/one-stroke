@@ -1,4 +1,4 @@
-# One-Stroke Robot Project
+# One-Stroke Robot Project @2024 team B3
 
 ![ライセンス](https://github.com/LaLaSero/one-stroke.git)
 ![リリース](https://github.com/LaLaSero/one-stroke.git)
